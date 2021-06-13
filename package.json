@@ -19,30 +19,60 @@
     "typescript": "^4.3.2"
   },
   "ahaExtension": {
+    "cspSources": [
+      "https://api.github.com"
+    ],
     "contributes": {
       "events": {
-        "prSyncEvent": {
-          "title": "PrSync Event",
-          "entryPoint": "src/events/prSync.ts",
+        "syncFromAha": {
+          "title": "Update PR from Aha!",
+          "entryPoint": "src/events/fromAha.ts",
           "handles": [
-            "aha.update.Feature"
+            "aha.update.Feature",
+            "aha.update.Requirement",
+            "aha.update.Epic"
+          ]
+        },
+        "syncFromGithub": {
+          "title": "Update Aha! from PR",
+          "entryPoint": "src/events/fromGithub.ts",
+          "handles": [
+            "aha-develop.github.pr.edited"
           ]
         }
       },
       "settings": {
         "token": {
-          "description": "GitHub personal access token for updating PRs",
+          "description": "GitHub personal access token for updating PRs https://github.com/settings/tokens",
           "title": "GitHub personal access token",
           "type": "string",
           "scope": [
             "account"
           ]
+        },
+        "updateFromAha": {
+          "description": "Update github PR when Aha! title changes",
+          "title": "Update from Aha!",
+          "scope": [
+            "account"
+          ],
+          "type": "boolean"
+        },
+        "updateFromGithub": {
+          "description": "Update Aha! title when GitHub PR title changes",
+          "title": "Update from GitHub",
+          "scope": [
+            "account"
+          ],
+          "type": "boolean"
         }
       }
     }
   },
   "dependencies": {
     "@octokit/graphql": "^4.6.4",
+    "@types/core-js": "^2.5.4",
+    "core-js": "^3.14.0",
     "gql-tag": "^1.0.1",
     "graphql": "^15.5.0"
   },
