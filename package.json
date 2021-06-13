@@ -1,0 +1,52 @@
+{
+  "name": "jemmyw.pr-sync",
+  "description": "PR Sync",
+  "version": "0.0.0",
+  "author": "jemmyw",
+  "repository": {
+    "type": "git",
+    "url": "TODO: Add the GitHub URL to your extension in package.json"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.21.5",
+    "@graphql-codegen/typescript": "1.22.1",
+    "@graphql-codegen/typescript-document-nodes": "1.17.12",
+    "@graphql-codegen/typescript-operations": "^1.18.0",
+    "@graphql-codegen/typescript-resolvers": "1.19.2",
+    "@octokit/graphql-schema": "^10.46.0",
+    "aha-cli": "1.9.8",
+    "typescript": "^4.3.2"
+  },
+  "ahaExtension": {
+    "contributes": {
+      "events": {
+        "prSyncEvent": {
+          "title": "PrSync Event",
+          "entryPoint": "src/events/prSync.ts",
+          "handles": [
+            "aha.update.Feature"
+          ]
+        }
+      },
+      "settings": {
+        "token": {
+          "description": "GitHub personal access token for updating PRs",
+          "title": "GitHub personal access token",
+          "type": "string",
+          "scope": [
+            "account"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@octokit/graphql": "^4.6.4",
+    "gql-tag": "^1.0.1",
+    "graphql": "^15.5.0"
+  },
+  "scripts": {
+    "codegen": "graphql-codegen --config codegen.yml"
+  }
+}
