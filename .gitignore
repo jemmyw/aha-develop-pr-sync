@@ -1,3 +1,4 @@
 node_modules
 .aha-cache
 src/generated/graphql.ts
+*.gz

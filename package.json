@@ -1,11 +1,11 @@
 {
   "name": "jemmyw.pr-sync",
   "description": "PR Sync",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "jemmyw",
   "repository": {
     "type": "git",
-    "url": "TODO: Add the GitHub URL to your extension in package.json"
+    "url": "https://github.com/jemmyw/aha-develop-pr-sync.git"
   },
   "license": "MIT",
   "devDependencies": {
