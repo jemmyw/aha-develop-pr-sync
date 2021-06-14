@@ -10,6 +10,10 @@ Requires the official github extension to be installed: https://github.com/aha-d
 
 Install the PR Sync extension by clicking [here](https://secure.aha.io/settings/account/extensions/install?url=https://github.com/jemmyw/aha-develop-pr-sync/releases/download/1.0.0/jemmyw.pr-sync-v1.0.0.gz).
 
+To sync to GitHub you must supply a personal access token with repo access from https://github.com/settings/tokens
+
+![Screenshot_20210614_121045](https://user-images.githubusercontent.com/8016/121826002-9699e580-cd09-11eb-9c5b-e07f1dab3acb.png)
+
 ## Working on the extension
 
 Install [`aha-cli`](https://github.com/aha-app/aha-cli):
