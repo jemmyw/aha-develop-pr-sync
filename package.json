@@ -51,7 +51,7 @@
           ]
         },
         "updateFromAha": {
-          "description": "Update github PR when Aha! title changes",
+          "description": "Update GitHub PR when Aha! title changes",
           "title": "Update from Aha!",
           "scope": [
             "account"
