@@ -9,24 +9,18 @@ import {
   UpdateTitleMutationVariables,
 } from "../generated/graphql";
 import { URL } from "core-js";
+import { LinkedRecord, PrLink } from "../types";
 
 ["Feature", "Requirement", "Epic"].forEach((type) =>
   aha.on({ event: `aha.update.${type}` }, updateLinkedPrs)
 );
 
-export type LinkedRecord = Aha.Requirement | Aha.Feature | Aha.Epic;
 
 interface UpdatedEventProps {
   record: LinkedRecord;
   changedFields: string[];
 }
 
-export interface PrLink {
-  id: number;
-  name: string;
-  url: string;
-  state: string;
-}
 
 const repoFromUrl = (url: string) =>
   new URL(url).pathname.split("/").slice(1, 3);
@@ -56,7 +50,6 @@ async function updateLinkedPrs(
     "aha-develop.github",
     "pullRequests"
   );
-  console.log(prs);
   const token = settings.token;
 
   if (prs) {
@@ -77,15 +70,12 @@ async function updateLinkedPr({
   pr: PrLink;
   token: string;
 }) {
-  console.log("looking for pr...");
   const api = graphql.defaults({
     headers: {
       authorization: `token ${token}`,
     },
   });
 
-  console.log(api);
-  console.log(pr.url);
   const pullRequest = await getPr(api, pr.url);
   if (!pullRequest) return;
 
@@ -106,9 +96,7 @@ async function getPr(api: typeof graphql, url: string) {
   const number = prNumberFromUrl(url);
   const getPrVars: GetPrQueryVariables = { owner, name, number };
 
-  console.log(getPrVars);
   const response = await api<GetPrQuery>(print(GetPr), getPrVars);
-  console.log(response);
   return response.repository?.pullRequest;
 }
 

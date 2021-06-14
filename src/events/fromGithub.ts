@@ -1,4 +1,4 @@
-import { LinkedRecord } from "./fromAha";
+import { LinkedRecord } from "../types";
 
 aha.on({ event: "aha-develop.github.pr.edited" }, updateAhaFromPr);
 
@@ -24,17 +24,13 @@ async function updateAhaFromPr(
 
   await record.loadAttributes("referenceNum", "name");
 
-  console.log(
-    `Updating ${record.typename} ${record.referenceNum} from PR ${payload.number}`
-  );
-
   const newTitle = payload.pull_request.title
     .replace(new RegExp(record.referenceNum, "g"), "")
     .trim();
   if (newTitle === "") return;
 
   console.log(
-    `${record.name} becomes ${newTitle} from ${payload.pull_request.title}`
+    `Updating ${record.typename} ${record.referenceNum} from PR ${payload.number}`
   );
 
   if (newTitle !== record.name) {
