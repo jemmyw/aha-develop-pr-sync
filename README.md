@@ -24,6 +24,13 @@ Clone the repo:
 git clone https://github.com/jemmyw/aha-develop-pr-sync.git
 ```
 
+Install and setup the github graphql types:
+
+```sh
+yarn install
+yarn run codegen
+```
+
 **Note: In order to install an extension into your Aha! Develop account, you must be an account administrator.**
 
 Install the extension into Aha! and set up a watcher:
