@@ -8,7 +8,7 @@ It's annoying when your GitHub pull request title gets out of sync with the reco
 
 Requires the official github extension to be installed: https://github.com/aha-develop/github
 
-Install the PR Sync extension by clicking [here](https://secure.aha.io/settings/account/extensions/install?url=).
+Install the PR Sync extension by clicking [here](https://secure.aha.io/settings/account/extensions/install?url=https://github.com/jemmyw/aha-develop-pr-sync/releases/download/1.0.0/jemmyw.pr-sync-v1.0.0.gz).
 
 ## Working on the extension
 
